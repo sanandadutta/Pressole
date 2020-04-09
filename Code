@@ -1,0 +1,107 @@
+#include <Adafruit_CircuitPlayground.h>
+
+int sensorPin1 = A3;    // select the input pin for the potentiometer
+int sensorPin2 = A7;
+int ledPin = 13;      // select the pin for the LED
+int i1 = 0;  // variable to store the value coming from the sensor
+int i2 = 0;
+
+void setup() {
+  // declare the ledPin as an OUTPUT:
+   CircuitPlayground.begin();
+  Serial.begin(9600);
+ pinMode(ledPin, INPUT);
+
+  }
+
+
+
+
+void loop() {
+
+  CircuitPlayground.setPixelColor(0, 0, 0, 0);
+  CircuitPlayground.setPixelColor(1, 0, 0, 0);
+  CircuitPlayground.setPixelColor(2, 0, 0, 0);
+  CircuitPlayground.setPixelColor(3, 0, 0, 0);
+  CircuitPlayground.setPixelColor(4, 0, 0, 0);
+  CircuitPlayground.setPixelColor(5, 0, 0, 0);
+  CircuitPlayground.setPixelColor(9, 0, 0, 0);
+  CircuitPlayground.setPixelColor(8, 0, 0, 0);
+  CircuitPlayground.setPixelColor(7, 0, 0, 0);
+  CircuitPlayground.setPixelColor(6, 0, 0, 0);
+  
+// read the value from the sensor:
+  i1 = analogRead(sensorPin1);
+  i2 = analogRead(sensorPin2);
+   Serial.println(i1); 
+   Serial.println(i2); 
+
+// read the value from the sensor:
+ // i2 = analogRead(sensorPin2);
+  // Serial.println(i2);
+   
+  // turn the ledPin on
+  digitalWrite(ledPin, HIGH);
+  
+  // stop the program for <sensorValue> milliseconds:
+  delay(1000);
+  
+  // turn the ledPin off:
+  digitalWrite(ledPin, LOW);
+  
+  // stop the program for for <sensorValue> milliseconds:
+  if (i1<=180){
+    CircuitPlayground.setPixelColor(0, 100,0,100);
+    CircuitPlayground.setPixelColor(1, 100,0,100);
+    CircuitPlayground.setPixelColor(2, 100,0,100);
+    CircuitPlayground.setPixelColor(9, 100,0,100);
+    CircuitPlayground.setPixelColor(8, 100,0,100);
+    CircuitPlayground.setPixelColor(7, 100,0,100);
+    }
+    
+    else if (i1>180){
+    CircuitPlayground.setPixelColor(0, 100,150,100);
+    CircuitPlayground.setPixelColor(1, 100,150,100);
+    CircuitPlayground.setPixelColor(2, 100,150,100);
+    CircuitPlayground.setPixelColor(9, 100,150,100);
+    CircuitPlayground.setPixelColor(8, 100,150,100);
+    CircuitPlayground.setPixelColor(7, 100,150,100);
+    }
+    
+    else{
+    CircuitPlayground.setPixelColor(0, 100,150,100);
+    CircuitPlayground.setPixelColor(1, 100,150,100);
+    CircuitPlayground.setPixelColor(2, 100,150,100);
+    CircuitPlayground.setPixelColor(9, 100,150,100);
+    CircuitPlayground.setPixelColor(8, 100,150,100);
+    CircuitPlayground.setPixelColor(7, 100,150,100);
+    }
+      
+
+  // stop the program for for <sensorValue> milliseconds:
+  if (i2<=260){
+    CircuitPlayground.setPixelColor(3, 100,0,100);
+    CircuitPlayground.setPixelColor(4, 100,0,100);
+    CircuitPlayground.setPixelColor(5, 100,0,100);
+    CircuitPlayground.setPixelColor(6, 100,0,100);
+    }
+    
+    else if (i2>260){
+    CircuitPlayground.setPixelColor(3, 100,150,100);
+    CircuitPlayground.setPixelColor(4, 100,150,100);
+    CircuitPlayground.setPixelColor(5, 100,150,100);
+    CircuitPlayground.setPixelColor(6, 100,150,100);
+    }
+    
+    else{
+    CircuitPlayground.setPixelColor(3, 100,150,100);
+    CircuitPlayground.setPixelColor(4, 100,150,100);
+    CircuitPlayground.setPixelColor(5, 100,150,100);
+    CircuitPlayground.setPixelColor(6, 100,150,100);
+    }
+
+    
+  delay(500);
+
+
+}
